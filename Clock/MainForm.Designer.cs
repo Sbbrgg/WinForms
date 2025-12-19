@@ -35,17 +35,20 @@
 			this.CBShowDate = new System.Windows.Forms.CheckBox();
 			this.CBShowWeekDay = new System.Windows.Forms.CheckBox();
 			this.btnHideControls = new System.Windows.Forms.Button();
+			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			this.SuspendLayout();
 			// 
 			// labelTime
 			// 
 			this.labelTime.AutoSize = true;
+			this.labelTime.BackColor = System.Drawing.SystemColors.ScrollBar;
 			this.labelTime.Font = new System.Drawing.Font("Engravers MT", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelTime.Location = new System.Drawing.Point(36, 31);
 			this.labelTime.Name = "labelTime";
 			this.labelTime.Size = new System.Drawing.Size(458, 50);
 			this.labelTime.TabIndex = 0;
 			this.labelTime.Text = "CurrentTime\r\n";
+			this.labelTime.MouseHover += new System.EventHandler(this.labelTime_MouseHover);
 			// 
 			// timer
 			// 
@@ -85,6 +88,13 @@
 			this.btnHideControls.UseVisualStyleBackColor = true;
 			this.btnHideControls.Click += new System.EventHandler(this.btnHideControls_Click);
 			// 
+			// notifyIcon
+			// 
+			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+			this.notifyIcon.Text = "System tray";
+			this.notifyIcon.Visible = true;
+			this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,6 +104,7 @@
 			this.Controls.Add(this.CBShowWeekDay);
 			this.Controls.Add(this.CBShowDate);
 			this.Controls.Add(this.labelTime);
+			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
@@ -110,6 +121,7 @@
 		private System.Windows.Forms.CheckBox CBShowDate;
 		private System.Windows.Forms.CheckBox CBShowWeekDay;
 		private System.Windows.Forms.Button btnHideControls;
+		private System.Windows.Forms.NotifyIcon notifyIcon;
 	}
 }
 

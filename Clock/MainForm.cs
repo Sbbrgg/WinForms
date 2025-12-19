@@ -18,7 +18,15 @@ namespace Clock
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 		}
-
+		void SetVisibility(bool visible)
+		{
+			CBShowDate.Visible = visible;
+			CBShowWeekDay.Visible = visible;
+			btnHideControls.Visible = visible;
+			this.ShowInTaskbar = visible;
+			this.FormBorderStyle = visible ? FormBorderStyle.FixedSingle : FormBorderStyle.None;
+			this.TransparencyKey = visible ? Color.Empty :this.BackColor;
+		}
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			labelTime.Text = DateTime.Now.ToString
@@ -32,14 +40,18 @@ namespace Clock
 				labelTime.Text += $"\n{DateTime.Now.ToString("yyyy:MM:dd")}";
 			if (CBShowWeekDay.Checked)
 				labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
+			notifyIcon.Text = labelTime.Text;
 		}
 
-		private void btnHideControls_Click(object sender, EventArgs e)
+		private void btnHideControls_Click(object sender, EventArgs e) => SetVisibility(false);
+		private void labelTime_MouseHover(object sender, EventArgs e) => SetVisibility(true);
+		private void notifyIcon_DoubleClick(object sender, EventArgs e)
 		{
-			CBShowDate.Visible = false;
-			CBShowWeekDay.Visible = false;
-			btnHideControls.Visible = false;
-			this.ShowInTaskbar = false;
+			this.TopMost = true;
+			this.TopMost = false;
 		}
+		//{
+		//	SetVisibility(true);
+		//}
 	}
 }
