@@ -38,8 +38,8 @@ namespace Clock
 			this.CBShowWeekDay = new System.Windows.Forms.CheckBox();
 			this.btnHideControls = new System.Windows.Forms.Button();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.CMSMainForm = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.CMSNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.CMSMainForm = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.SuspendLayout();
 			// 
 			// labelTime
@@ -63,7 +63,7 @@ namespace Clock
 			// 
 			this.CBShowDate.AutoSize = true;
 			this.CBShowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.CBShowDate.Location = new System.Drawing.Point(100, 190);
+			this.CBShowDate.Location = new System.Drawing.Point(60, 190);
 			this.CBShowDate.Name = "CBShowDate";
 			this.CBShowDate.Size = new System.Drawing.Size(176, 29);
 			this.CBShowDate.TabIndex = 1;
@@ -74,7 +74,7 @@ namespace Clock
 			// 
 			this.CBShowWeekDay.AutoSize = true;
 			this.CBShowWeekDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.CBShowWeekDay.Location = new System.Drawing.Point(100, 225);
+			this.CBShowWeekDay.Location = new System.Drawing.Point(60, 225);
 			this.CBShowWeekDay.Name = "CBShowWeekDay";
 			this.CBShowWeekDay.Size = new System.Drawing.Size(256, 29);
 			this.CBShowWeekDay.TabIndex = 2;
@@ -84,7 +84,7 @@ namespace Clock
 			// btnHideControls
 			// 
 			this.btnHideControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnHideControls.Location = new System.Drawing.Point(100, 260);
+			this.btnHideControls.Location = new System.Drawing.Point(60, 260);
 			this.btnHideControls.Name = "btnHideControls";
 			this.btnHideControls.Size = new System.Drawing.Size(339, 111);
 			this.btnHideControls.TabIndex = 3;
@@ -100,22 +100,22 @@ namespace Clock
 			this.notifyIcon.Visible = true;
 			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
 			// 
+			// CMSNotifyIcon
+			// 
+			this.CMSNotifyIcon.Name = "CMSNotifyIcon";
+			this.CMSNotifyIcon.Size = new System.Drawing.Size(61, 4);
+			///this.CMSNotifyIcon.Opening += new System.ComponentModel.CancelEventHandler(this.CMSNotifyIcon_Opening);
+			// 
 			// CMSMainForm
 			// 
 			this.CMSMainForm.Name = "CMSMainForm";
 			this.CMSMainForm.Size = new System.Drawing.Size(61, 4);
 			// 
-			// CMSNotifyIcon
-			// 
-			this.CMSNotifyIcon.Name = "CMSNotifyIcon";
-			this.CMSNotifyIcon.Size = new System.Drawing.Size(61, 4);
-			//this.CMSNotifyIcon.Opening += new System.ComponentModel.CancelEventHandler(this.CMSNotifyIcon_Opening);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(530, 383);
+			this.ClientSize = new System.Drawing.Size(453, 383);
 			this.ContextMenuStrip = this.CMSMainForm;
 			this.Controls.Add(this.btnHideControls);
 			this.Controls.Add(this.CBShowWeekDay);
