@@ -1,4 +1,6 @@
-﻿namespace Clock
+﻿using System.Windows.Forms;
+
+namespace Clock
 {
 	partial class MainForm
 	{
@@ -107,7 +109,7 @@
 			// 
 			this.CMSNotifyIcon.Name = "CMSNotifyIcon";
 			this.CMSNotifyIcon.Size = new System.Drawing.Size(61, 4);
-			this.CMSNotifyIcon.Opening += new System.ComponentModel.CancelEventHandler(this.CMSNotifyIcon_Opening);
+			//this.CMSNotifyIcon.Opening += new System.ComponentModel.CancelEventHandler(this.CMSNotifyIcon_Opening);
 			// 
 			// MainForm
 			// 

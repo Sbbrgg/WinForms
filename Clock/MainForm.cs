@@ -19,7 +19,30 @@ namespace Clock
 			this.MinimizeBox = false;
 			this.StartPosition = FormStartPosition.Manual;
 			this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Right - this.Width, Screen.PrimaryScreen.WorkingArea.Top);
+
+			//InitializeContextMenu();
 		}
+
+		//private void InitializeContextMenu()
+		//{
+		//	CMSMainForm = new ContextMenuStrip
+		//	{
+		//		Items =
+		//		{
+		//			new ToolStripMenuItem("Открыть", null, (s, e) => SetVisibility(true)),
+		//			new ToolStripMenuItem("Скрыть", null, (s, e) => SetVisibility(false)),
+		//			new ToolStripMenuItem("Поверх всех окон", null,
+		//				(s, e) => {
+		//					this.TopMost = this.TopMost;
+		//					((ToolStripMenuItem)s).Checked = this.TopMost;
+		//				}) { CheckOnClick = true },
+		//			new ToolStripSeparator(),
+		//			new ToolStripMenuItem("Выход", null, (s, e) => Application.Exit())
+		//		}
+		//	};
+		//	notifyIcon.ContextMenuStrip = CMSMainForm;
+		//}
+
 		void SetVisibility(bool visible)
 		{
 			CBShowDate.Visible = visible;
@@ -53,49 +76,33 @@ namespace Clock
 			this.TopMost = false;
 		}
 
-		private void CMSNotifyIcon_Opening(object sender, CancelEventArgs e)
-		{
+		//создаётся каждый раз при нажатии 
+		//private void CMSNotifyIcon_Opening(object sender, CancelEventArgs e)
+		//{
 
-			CMSMainForm = new ContextMenuStrip();
-			ToolStripMenuItem openItem = new ToolStripMenuItem("Открыть");
-			openItem.Click += (s, args) =>
-			{
-				SetVisibility(true);
-			};
-			ToolStripMenuItem hideItem = new ToolStripMenuItem("Скрыть");
-			hideItem.Click += (s, args) => SetVisibility(false);
+		//	CMSMainForm = new ContextMenuStrip();
+		//	ToolStripMenuItem openItem = new ToolStripMenuItem("Открыть");
+		//	//openItem.Click += (s, args) => SetVisibility(true);
+		//	openItem.Click += new EventHandler(openItem_Click);
+		//	ToolStripMenuItem hideItem = new ToolStripMenuItem("Скрыть");
+		//	hideItem.Click += (s, args) => SetVisibility(false);
 
-			ToolStripMenuItem alwaysOnTop = new ToolStripMenuItem("Показать");
-			alwaysOnTop.Click += (s, args) => this.TopMost = this.TopMost;
+		//	ToolStripMenuItem alwaysOnTop = new ToolStripMenuItem("Показать");
+		//	alwaysOnTop.Click += (s, args) => this.TopMost = this.TopMost;
 
-			ToolStripMenuItem exitItem = new ToolStripMenuItem("Выход");
-			exitItem.Click += (s, args) => Application.Exit();
+		//	ToolStripMenuItem exitItem = new ToolStripMenuItem("Выход");
+		//	exitItem.Click += (s, args) => Application.Exit();
 
-			CMSMainForm.Items.AddRange
-				(
-					new ToolStripItem[] { openItem, hideItem, alwaysOnTop, exitItem }
-				);
-			CMSMainForm.Show(Cursor.Position);
-
-			//CMSMainForm.Opening += new System.ComponentModel.CancelEventHandler(cms_Opening);
-			//ToolStrip ts = new ToolStrip();
-			//ToolStripDropDownButton CMSMainFormDropDown = new ToolStripDropDownButton("Открыть", null, null, "Открыть");
-			//ts.Items.Add(CMSMainFormDropDown);
-			//ts.Dock = DockStyle.Top;
-			//CMSMainFormDropDown.DropDown = CMSMainForm;
-			//MenuStrip ms = new MenuStrip();
-			//ToolStripMenuItem CMSMainFindowMenuItem = new ToolStripMenuItem("Открыть", null, null, "Открыть");
-			//ms.Items.Add(CMSMainFindowMenuItem);
-			//ms.Dock = DockStyle.Top;
-			//CMSMainFindowMenuItem.DropDown = CMSMainForm;
-			//this.ContextMenuStrip = CMSMainForm;
-			//this.Controls.Add(ts);
-			//Button b = new Button();
-			//b.Location = new System.Drawing.Point(60, 60);
-			//this.Controls.Add(b);
-			//b.ContextMenuStrip = CMSMainForm;
-			//this.Controls.Add(ms);
-		}
+		//	CMSMainForm.Items.AddRange
+		//		(
+		//			new ToolStripItem[] { openItem, hideItem, alwaysOnTop, exitItem }
+		//		);
+		//	CMSMainForm.Show(Cursor.Position);
+		//}
+		//private void openItem_Click(object sender, EventArgs e)
+		//{
+		//	SetVisibility(true);
+		//}
 		void cms_Opening(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			Control c = CMSMainForm.SourceControl as Control;
