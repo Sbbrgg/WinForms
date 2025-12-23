@@ -79,5 +79,23 @@ namespace Clock
 		private void CBShowWeekDay_CheckedChanged(object sender, EventArgs e) => tsmiShowWeekday.Checked = CBShowWeekDay.Checked;
 
 		private void tsmiQuit_Click(object sender, EventArgs e) => this.Close();
+
+		private void tsmiForegroundColor_Click(object sender, EventArgs e)
+		{
+			ColorDialog colorDialog = new ColorDialog();
+			colorDialog.Color = labelTime.ForeColor;
+			colorDialog.FullOpen = true;
+			if (colorDialog.ShowDialog() == DialogResult.OK)
+				labelTime.ForeColor = colorDialog.Color;
+		}
+
+		private void tsmiBackgroundColor_Click(object sender, EventArgs e)
+		{
+			ColorDialog colorDialog = new ColorDialog();
+			colorDialog.Color = labelTime.BackColor;
+			colorDialog.FullOpen = true;
+			if (colorDialog.ShowDialog() == DialogResult.OK)
+				labelTime.BackColor = colorDialog.Color;
+		}
 	}
 }
