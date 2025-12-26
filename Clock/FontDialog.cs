@@ -15,11 +15,13 @@ namespace Clock
 	public partial class FontDialog : Form
 	{
 		public Font Font {  get; set; }
+		int lastChoosenIndex;
 		public FontDialog()
 		{
 			InitializeComponent();
 			LoadFonts("*.ttf");
 			LoadFonts("*.otf");
+			lastChoosenIndex = 0;
 		}
 
 		private void FontDialog_Load(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace Clock
 		void LoadFonts(string extension)
 		{
 			string currentDir = Application.ExecutablePath;
-			Directory.SetCurrentDirectory($"{currentDir}\\..\\..\\..\\Fonts");
+			Directory.SetCurrentDirectory($"{currentDir}\\..\\..\\..\\Fonts\\MyFonts");
 			//\\MyFonts
 			//MessageBox.Show
 			//	(
@@ -66,6 +68,13 @@ namespace Clock
 		private void buttonOK_Click(object sender, EventArgs e)
 		{
 			this.Font = labelExample.Font;
+			this.lastChoosenIndex = comboBoxFont.SelectedIndex;
+		}
+
+		private void buttonCancel_Click(object sender, EventArgs e)
+		{
+			labelExample.Font = this.Font;
+			comboBoxFont.SelectedIndex = lastChoosenIndex;
 		}
 	}
 }
