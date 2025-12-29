@@ -123,7 +123,7 @@ namespace Clock
 		private void tsmiAutoStart_CheckedChanged(object sender, EventArgs e)
 		{
 			string key_name = "ClockPV_521";
-			RegistryKey rk = Registry.CurrentUser.OpenSubKey("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+			RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 			if (tsmiAutoStart.Checked) rk.SetValue(key_name, Application.ExecutablePath);
 			else rk.DeleteValue(key_name, false);   //false - не бросать исключение, если данная запись отсутствует в реестре
 			rk.Dispose();
