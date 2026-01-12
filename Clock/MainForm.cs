@@ -32,6 +32,8 @@ namespace Clock
 			backgroundColorDialog = new ColorDialog();
 			LoadSettings();
 			//this.TopMost = tsmiTopmost.Checked;
+			//FormSound sound = new FormSound();
+			//sound.ShowDialog();
 		}
 		void SetVisibility(bool visible)
 		{

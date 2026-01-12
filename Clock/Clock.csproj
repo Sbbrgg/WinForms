@@ -53,6 +53,12 @@
     <Compile Include="FontDialog.Designer.cs">
       <DependentUpon>FontDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSound.Designer.cs">
+      <DependentUpon>FormSound.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FontDialog.resx">
       <DependentUpon>FontDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSound.resx">
+      <DependentUpon>FormSound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
