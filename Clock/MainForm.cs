@@ -66,7 +66,7 @@ namespace Clock
 			writer.WriteLine(labelTime.Font.Size);
 
 			writer.Close();
-			System.Diagnostics.Process.Start("notepad", "Settings.ini");
+			//System.Diagnostics.Process.Start("notepad", "Settings.ini");
 		}
 		void LoadSettings()
 		{
