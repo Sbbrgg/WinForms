@@ -68,6 +68,9 @@
 			this.Controls.Add(this.buttonDelete);
 			this.Controls.Add(this.buttonAdd);
 			this.Controls.Add(this.listBoxAlarms);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "AlarmsForm";
 			this.Text = "Alarms";
 			this.ResumeLayout(false);

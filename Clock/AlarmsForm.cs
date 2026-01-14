@@ -17,10 +17,13 @@ namespace Clock
 		{
 			InitializeComponent();
 			alarm = new AlarmDialog();
+			this.StartPosition = FormStartPosition.Manual;
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
+			//alarm.StartPosition = FormStartPosition.CenterParent;
+			alarm.Location = new Point(this.Location.X + (this.Width - alarm.Width) / 2, this.Location.Y + (this.Height - alarm.Height) / 2);
 			alarm.ShowDialog();
 		}
 	}
