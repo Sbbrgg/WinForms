@@ -13,7 +13,7 @@ namespace Clock
 	public partial class AlarmDialog : Form
 	{
 		OpenFileDialog fileDialog;
-		public Alarm Alarm { get; private set; }
+		public Alarm Alarm { get; set; }
 		public AlarmDialog()
 		{
 			InitializeComponent();
@@ -31,7 +31,7 @@ namespace Clock
 				"|Mqa files (*.mqa)|*.mqa" +
 				"|Ape files (*.ape)|*.ape";
 			this.StartPosition = FormStartPosition.Manual;
-			Alarm = new Alarm();
+			//Alarm = new Alarm();
 		}
 
 		private void checkBoxUseDate_CheckedChanged(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace Clock
 			byte days = 0;
 			for (int i = 0; i < clbWeekDays.CheckedIndices.Count; i++)
 			{
-				days |= (byte)(1<<clbWeekDays.CheckedIndices[i]);
+				days |= (byte)(1 << clbWeekDays.CheckedIndices[i]);
 				Console.Write($"{clbWeekDays.CheckedIndices[i]}\t");
 			}
 			Console.WriteLine($"days mask {days}");
@@ -73,10 +73,40 @@ namespace Clock
 
 		private void buttonOK_Click(object sender, EventArgs e)
 		{
+			if (Alarm == null) Alarm = new Alarm();
 			Alarm.Date = checkBoxUseDate.Checked ? dtpDate.Value : DateTime.MaxValue;
 			Alarm.Time = dtpTime.Value;
 			Alarm.Days = new Week(GetDaysMask());
 			Alarm.Filename = labelFilename.Text;
+		}
+		public void LoadAlarmSettings(Alarm alarm)
+		{
+			this.Alarm = alarm;
+			if (alarm.Date != DateTime.MaxValue)
+			{
+				checkBoxUseDate.Checked = true;
+				dtpDate.Value = alarm.Date;
+			}
+			else
+			{
+				checkBoxUseDate.Checked = false;
+				dtpDate.Enabled = false;
+			}
+			dtpTime.Value = alarm.Time;
+			if (alarm.Days != null) SetWeekDays(alarm.Days.DaysMask);
+			else
+			{
+				for (int i = 0; i < clbWeekDays.Items.Count; i++)
+					clbWeekDays.SetItemChecked(i, false);	
+			}
+			labelFilename.Text = alarm.Filename;
+		}
+		private void SetWeekDays(byte daysMask)
+		{
+			for (int i = 0; i < clbWeekDays.Items.Count; i++)
+				clbWeekDays.SetItemChecked(i, false);
+			for (int i = 0; i < clbWeekDays.Items.Count; i++)
+				clbWeekDays.SetItemChecked(i, (daysMask & (1 << i)) != 0);
 		}
 	}
 }

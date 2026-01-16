@@ -10,9 +10,15 @@ namespace Clock
 	{
 		static readonly string[] NAMES = { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" };
 		byte days;
+		public byte DaysMask
+		{
+			get { return days; }
+			set { days = value; }
+		}
 		public Week(byte days)
 		{
 			this.days = days;
+			DaysMask = days;
 		}
 		public override string ToString()
 		{
