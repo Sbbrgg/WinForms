@@ -33,7 +33,22 @@ namespace Clock
 			this.StartPosition = FormStartPosition.Manual;
 			Alarm = new Alarm();
 		}
-
+		public AlarmDialog(Alarm alarm) : this()
+		{
+			Alarm = alarm;
+			Extract();
+		}
+		void Extract()
+		{
+			if (Alarm.Date != DateTime.MaxValue)
+			{
+				dtpDate.Value = Alarm.Date;
+				checkBoxUseDate.Checked = true;
+			}
+			dtpTime.Value = Alarm.Time;
+			Alarm.Days.Extract(clbWeekDays);
+			labelFilename.Text = Alarm.Filename;
+		}
 		private void checkBoxUseDate_CheckedChanged(object sender, EventArgs e)
 		{
 			dtpDate.Enabled = (sender as CheckBox).Checked;
@@ -57,7 +72,7 @@ namespace Clock
 			byte days = 0;
 			for (int i = 0; i < clbWeekDays.CheckedIndices.Count; i++)
 			{
-				days |= (byte)(1<<clbWeekDays.CheckedIndices[i]);
+				days |= (byte)(1 << clbWeekDays.CheckedIndices[i]);
 				Console.Write($"{clbWeekDays.CheckedIndices[i]}\t");
 			}
 			Console.WriteLine($"days mask {days}");

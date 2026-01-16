@@ -160,6 +160,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AlarmDialog";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "AlarmDialog";
 			this.ResumeLayout(false);
 			this.PerformLayout();
