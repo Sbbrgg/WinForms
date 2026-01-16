@@ -31,5 +31,27 @@ namespace Clock
 			}
 			return days;
 		}
+		public static Week Parse(string s)
+		{
+			byte mask = 0;
+			string[] parts = s.Split(',');
+			foreach(string part in parts)
+			{
+				string partWithoutSpaces = part.Trim(); //убирает пробелы
+				int index = -1;
+				switch(partWithoutSpaces)
+				{
+					case "Пн": index = 0; break;
+					case "Вт": index = 1; break;
+					case "Ср": index = 2; break;
+					case "Чт": index = 3; break;
+					case "Пт": index = 4; break;
+					case "Сб": index = 5; break;
+					case "Вс": index = 6; break;
+				}
+				if (index >= 0) mask |= (byte)(1 << index);
+			}
+			return new Week(mask);
+		}
 	}
 }

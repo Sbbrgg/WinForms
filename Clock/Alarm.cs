@@ -12,6 +12,11 @@ namespace Clock
 		public DateTime Time { get; set; }
 		public Week Days { get; set; }
 		public string Filename { get; set; }
+		public Alarm() { }
+		public Alarm(string line)
+		{
+			ParseFromString(line);
+		}
 		public override string ToString()
 		{
 			//return $"{Date}, {Time}, {Days.ToString()}, {Filename}";
@@ -21,6 +26,15 @@ namespace Clock
 			info += $"\t{Days}";
 			info += $"\t{Filename.Split('\\').Last()}";
 			return info;
+		}
+		public void ParseFromString(string data)
+		{
+			string[] parts = data.Split('\t');
+			Date = parts[0] == "Каждый день" ? DateTime.MaxValue : DateTime.ParseExact(parts[0], "yyyy.MM.dd", null);
+			Time = DateTime.ParseExact(parts[1], "HH:mm:ss", null);
+			//Days = new Week(Convert.ToByte(parts[2]));
+			Days = Week.Parse(parts[2]);
+			Filename = parts[3];
 		}
 	}
 }

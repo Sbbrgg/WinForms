@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Clock
 			InitializeComponent();
 			//alarm = new AlarmDialog();
 			this.StartPosition = FormStartPosition.Manual;
+			LoadSettings();
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
@@ -54,6 +56,35 @@ namespace Clock
 			}
 
 			//Alarm selectedAlarm = listBoxAlarms.SelectedItem as Alarm;
+		}
+		private void SaveSettings()
+		{
+			Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
+			StreamWriter writer = new StreamWriter("AlarmsSettings.ini");
+			for(int i = 0; i < listBoxAlarms.Items.Count; i++)
+			{
+				writer.WriteLine(listBoxAlarms.Items[i]);
+			}
+			writer.Close();
+			//System.Diagnostics.Process.Start("notepad", "AlarmsSettings.ini");
+			//MessageBox.Show(Directory.GetCurrentDirectory(), "CurrentDir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+		private void LoadSettings()
+		{
+			Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
+			StreamReader reader = new StreamReader("AlarmsSettings.ini");
+			string line;
+			while ((line = reader.ReadLine()) != null)
+			{
+				//listBoxAlarms.Items.Add(line);
+				Alarm alarm = new Alarm(line);
+				listBoxAlarms.Items.Add(alarm);
+			}
+		}
+
+		private void AlarmsForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			SaveSettings();
 		}
 	}
 }
