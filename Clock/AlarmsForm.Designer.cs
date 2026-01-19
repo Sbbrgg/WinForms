@@ -73,6 +73,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AlarmsForm";
+			this.ShowInTaskbar = false;
 			this.Text = "Alarms";
 			this.ResumeLayout(false);
 

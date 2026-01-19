@@ -24,7 +24,7 @@ namespace Clock
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
 			AlarmDialog alarm = new AlarmDialog();
-			//alarm.StartPosition = FormStartPosition.CenterParent;
+			alarm.StartPosition = FormStartPosition.CenterParent;
 			alarm.Location = new Point(this.Location.X + (this.Width - alarm.Width) / 2, this.Location.Y + (this.Height - alarm.Height) / 2);
 			if(alarm.ShowDialog() == DialogResult.OK)
 			{
@@ -36,6 +36,7 @@ namespace Clock
 			if (listBoxAlarms.Items.Count > 0 && listBoxAlarms.SelectedItem != null)
 			{
 				AlarmDialog alarm = new AlarmDialog(listBoxAlarms.SelectedItem as Alarm);
+				alarm.StartPosition = FormStartPosition.CenterParent;
 				//alarm.Location = new Point(this.Location.X + (this.Width - alarm.Width) / 2, this.Location.Y + (this.Height - alarm.Height) / 2);
 				alarm.ShowDialog();
 				//listBoxAlarms.Refresh();

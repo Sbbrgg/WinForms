@@ -32,6 +32,8 @@ namespace Clock
 				"|Ape files (*.ape)|*.ape";
 			this.StartPosition = FormStartPosition.Manual;
 			Alarm = new Alarm();
+			for (int i = 0; i < 7; i++)
+				clbWeekDays.SetItemChecked(i, true);
 		}
 		public AlarmDialog(Alarm alarm) : this()
 		{
