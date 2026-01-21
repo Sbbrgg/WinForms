@@ -15,6 +15,7 @@ namespace Clock
 		{
 			this.days = days;
 		}
+		public byte GetMask() => days;
 		public void Extract(CheckedListBox clb)
 		{
 			if (clb.Items.Count != 7) return;
@@ -22,7 +23,7 @@ namespace Clock
 			{
 				//int d = ((i<<i) & days);
 				//(clb.Items[i] as CheckBox).Checked = Convert.ToBoolean((i << i) & days);
-				clb.SetItemChecked(i, Convert.ToBoolean((i << i) & days));
+				clb.SetItemChecked(i, Convert.ToBoolean((1 << i) & days));
 			}
 			return;
 		}

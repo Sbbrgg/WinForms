@@ -25,7 +25,7 @@ namespace Clock
 		{
 			AlarmDialog alarm = new AlarmDialog();
 			alarm.StartPosition = FormStartPosition.CenterParent;
-			alarm.Location = new Point(this.Location.X + (this.Width - alarm.Width) / 2, this.Location.Y + (this.Height - alarm.Height) / 2);
+			//alarm.Location = new Point(this.Location.X + (this.Width - alarm.Width) / 2, this.Location.Y + (this.Height - alarm.Height) / 2);
 			if(alarm.ShowDialog() == DialogResult.OK)
 			{
 				listBoxAlarms.Items.Add(new Alarm(alarm.Alarm));
