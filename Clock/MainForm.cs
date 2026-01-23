@@ -48,7 +48,7 @@ namespace Clock
 		}
 		void SaveSettings()
 		{
-			Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
+			Directory.SetCurrentDirectory(Application.StartupPath);
 			//MessageBox.Show(this, Directory.GetCurrentDirectory(), "Settings path", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			StreamWriter writer = new StreamWriter("Settings.ini");
 			writer.WriteLine(this.Location.X);
@@ -73,7 +73,7 @@ namespace Clock
 		}
 		void LoadSettings()
 		{
-			Directory.SetCurrentDirectory($"{Application.ExecutablePath}\\..\\..\\..");
+			Directory.SetCurrentDirectory(Application.StartupPath);
 			try
 			{
 				StreamReader reader = new StreamReader("Settings.ini");
