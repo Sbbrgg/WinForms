@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace Clock
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			Directory.CreateDirectory($"{Application.UserAppDataPath}\\..\\..\\..\\..\\LocalLow\\PV_521\\Clock\\Settings");
 			Application.Run(new MainForm());
 		}
 	}

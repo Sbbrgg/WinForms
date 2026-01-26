@@ -41,8 +41,8 @@ namespace Clock
 		}
 		void LoadFonts(string extension)
 		{
-			string currentDir = Application.StartupPath;
-			Directory.SetCurrentDirectory($"{currentDir}\\..\\..\\Fonts");
+			//string currentDir = Application.StartupPath;
+			Directory.SetCurrentDirectory($"{Application.StartupPath}\\..\\..\\Fonts");
 			//\\MyFonts
 			//MessageBox.Show
 			//	(

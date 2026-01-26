@@ -48,7 +48,7 @@ namespace Clock
 		}
 		void SaveSettings()
 		{
-			Directory.SetCurrentDirectory($"{Application.StartupPath}\\..\\..\\");
+			Directory.SetCurrentDirectory($"{Application.UserAppDataPath}\\..\\..\\..\\..\\LocalLow\\PV_521\\Clock\\Settings");
 			//MessageBox.Show(this, Directory.GetCurrentDirectory(), "Settings path", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			StreamWriter writer = new StreamWriter("Settings.ini");
 			writer.WriteLine(this.Location.X);
@@ -73,7 +73,7 @@ namespace Clock
 		}
 		void LoadSettings()
 		{
-			Directory.SetCurrentDirectory($"{Application.StartupPath}\\..\\..\\");
+			Directory.SetCurrentDirectory($"{Application.UserAppDataPath}\\..\\..\\..\\..\\LocalLow\\PV_521\\Clock\\Settings");
 			try
 			{
 				StreamReader reader = new StreamReader("Settings.ini");
@@ -101,6 +101,7 @@ namespace Clock
 			catch (Exception ex)
 			{
 				MessageBox.Show(this, ex.Message, "Seetings issue", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				//MessageBox.Show(this, "Добро пожаловать!", "Hello", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 		private void timer_Tick(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace Clock
 			if
 				(
 				alarm != null
-				&&(
+				&& (
 					alarm.Date == DateTime.MaxValue ?
 					alarm.Days.Contains((byte)DateTime.Now.DayOfWeek) :
 					CompareDates(alarm.Date, DateTime.Now)
