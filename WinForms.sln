@@ -5,7 +5,9 @@ VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "Clock\Clock.csproj", "{7052E97C-F6FF-4542-BF55-CA054D591FA7}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ClockSetupClass", "ClockSetupClass\ClockSetupClass.vdproj", "{DB96C3B4-0478-4528-9A09-AEFFB9D8BB21}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ClockSetup", "ClockSetup\ClockSetup.vdproj", "{3463BC7A-BE01-AE0C-1945-5E13E2087DD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autorunner", "Autorunner\Autorunner.csproj", "{CF522050-2855-432E-93AB-6514FC295698}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +19,12 @@ Global
 		{7052E97C-F6FF-4542-BF55-CA054D591FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7052E97C-F6FF-4542-BF55-CA054D591FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7052E97C-F6FF-4542-BF55-CA054D591FA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DB96C3B4-0478-4528-9A09-AEFFB9D8BB21}.Debug|Any CPU.ActiveCfg = Debug
-		{DB96C3B4-0478-4528-9A09-AEFFB9D8BB21}.Release|Any CPU.ActiveCfg = Release
+		{3463BC7A-BE01-AE0C-1945-5E13E2087DD9}.Debug|Any CPU.ActiveCfg = Debug
+		{3463BC7A-BE01-AE0C-1945-5E13E2087DD9}.Release|Any CPU.ActiveCfg = Release
+		{CF522050-2855-432E-93AB-6514FC295698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF522050-2855-432E-93AB-6514FC295698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF522050-2855-432E-93AB-6514FC295698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF522050-2855-432E-93AB-6514FC295698}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
